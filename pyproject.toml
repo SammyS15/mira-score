@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=45"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mira_score"
+version = "0.1.7"
+description = "MIRA: A Score for Conditional Distribution Accuracy and Model Comparison"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+dependencies = [
+    "tqdm",
+    "torch",
+    "scipy",
+    "numpy",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "black",
+    "flake8",
+]
+
+[tool.setuptools]
+packages = ["mira_score"]
+package-dir = {"" = "src"}
+
