@@ -1,10 +1,10 @@
 # MIRA: A Score for Conditional Distribution Accuracy and Model Comparison
 
-This repository contains the MIRA score implementation and supplementary materials for ICML 2026.
+This repository contains the MIRA score implementation.
 
 ## Overview
 
-MIRA is a metric for evaluating conditional distribution accuracy and comparing models. This package provides tools to compute MIRA scores and includes a demonstration notebook showing baseline comparisons.
+MIRA is a score for evaluating conditional distribution accuracy and comparing models. This package provides tools to compute MIRA scores and includes a demonstration notebook showing baseline comparisons.
 
 ## Installation Instructions
 
@@ -26,12 +26,12 @@ pip install mira_score
 Or, to install from source in editable mode:
 
 ```bash
-git clone https://github.com/<your-username>/mira-score.git
+git clone https://github.com/SammyS15/mira-score.git
 cd mira-score
 pip install -e .
 ```
 
-This will install the `mira_score` package along with all required dependencies (tqdm, torch, scipy, numpy).
+This will install the `mira_score` package along with all required dependencies.
 
 ### 4. Verify Installation
 
