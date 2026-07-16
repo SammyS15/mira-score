@@ -60,12 +60,13 @@ def mira(truth: torch.Tensor,
     # Z-score normalization
     # -------------------------
     if norm:
-        min_val = truth.min(dim=0, keepdim=True).values
-        max_val = truth.max(dim=0, keepdim=True).values
-        range_val = max_val - min_val + 1e-8  # avoid divide by zero
+        # Pooled over truth+posterior (not truths' box only), mapped +/-4 sigma into [0, 1].
+        pooled = torch.cat([truth.reshape(-1, q), posterior.reshape(-1, q)], dim=0)
+        mean = pooled.mean(dim=0)
+        std = pooled.std(dim=0) + 1e-8  # avoid divide by zero
 
-        truth = (truth - min_val) / range_val
-        posterior = (posterior - min_val) / range_val
+        truth = ((truth - mean) / std + 4.0) / 8.0
+        posterior = ((posterior - mean) / std + 4.0) / 8.0
     # Constants
     N = S - 1
     max_val = (N + 1) / (N + 2)
